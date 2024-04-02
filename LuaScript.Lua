@@ -684,16 +684,10 @@ local function UKOWAHC_fake_script()
 end
 coroutine.wrap(UKOWAHC_fake_script)()
 
-local function H83248f_fake_script()
-	local script = Instance.new("Script", ExecuteScript)
-        script.Name = "Controllor"
-
-        script.Parent.OnSeverEvent:Connect(function(Player, Code)
-            print("Player:", Player)
-            localstring(Code)()
-        end)
-end
-coroutine.wrap(H83248f_fake_script)()
+ExecuteScript.OnSeverEvent:Connect(function(Player, Code)
+     print("Player:", Player)
+     localstring(Code)()
+end)
 
 local function AFBOV_fake_script()
 	local script = Instance.new("LocalScript", SynapseX)
