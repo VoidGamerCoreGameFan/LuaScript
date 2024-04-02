@@ -653,36 +653,31 @@ UICorner_17.Parent = SynapseXV3
 
 UICorner_18.Parent = OptionSpage
 
-local function UKOWAHC_fake_script()
-	local script = Instance.new("Script", SynapseX)
-        script.Name = "MainScript"
-	local SynapseXVerison = "4.5.8"
+local SynapseXVerison = "4.5.8"
+
+local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
+
+Notification:Notify({
+	Title = "Synapse X - "..SynapseXVerison,
+	Description = "Made by ToastedT0es and VoidGamerCoreGameFan."},
+{OutlineColor = Color3.fromRGB(219, 69, 39),
+	Time = 5,
+	Type = "image"},
+{Image = "http://www.roblox.com/asset/?id=7641125882",
+	ImageColor = Color3.fromRGB(219, 69, 39)
+})
 	
-	local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
-	local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
+Notification:Notify({Title = "Synapse X - "..SynapseXVerison,
+	Description = "Discord - Unknown."},
+{OutlineColor = Color3.fromRGB(219, 69, 39),
+	Time = 5,
+	Type = "image"},
+{Image = "http://www.roblox.com/asset/?id=7641125882",
+	ImageColor = Color3.fromRGB(219, 69, 39)
+})
 	
-	Notification:Notify({
-		Title = "Synapse X - "..SynapseXVerison,
-		Description = "Made by ToastedT0es and VoidGamerCoreGameFan."},
-	{OutlineColor = Color3.fromRGB(219, 69, 39),
-		Time = 5,
-		Type = "image"},
-	{Image = "http://www.roblox.com/asset/?id=7641125882",
-		ImageColor = Color3.fromRGB(219, 69, 39)
-	})
-	
-	Notification:Notify({Title = "Synapse X - "..SynapseXVerison,
-		Description = "Discord - Unknown."},
-	{OutlineColor = Color3.fromRGB(219, 69, 39),
-		Time = 5,
-		Type = "image"},
-	{Image = "http://www.roblox.com/asset/?id=7641125882",
-		ImageColor = Color3.fromRGB(219, 69, 39)
-	})
-	
-	wait(1)
-end
-coroutine.wrap(UKOWAHC_fake_script)()
+wait(1)
 
 ExecuteScript.OnSeverEvent:Connect(function(Player, Code)
      print("Player:", Player)
@@ -1328,7 +1323,7 @@ local function AFBOV_fake_script()
 	Execute.MouseButton1Click:Connect(function()
 		if Injected == true then
 			print(Source.Text)
-			script.Parent.ExecuteScript:FireServer(Source.Text)
+			ExecuteScript:FireServer(Source.Text)
 		end
 		if Injected == false then
 			print(Source.Text)
@@ -1365,4 +1360,3 @@ local function AFBOV_fake_script()
 	end
 end
 coroutine.wrap(AFBOV_fake_script)()
-print("Test")
