@@ -68,16 +68,6 @@ local UICorner_18 = Instance.new("UICorner")
 local ExecuteScript = Instance.new("RemoteEvent")
 
 ExecuteScript.Parent = SynapseX
-local function H83248f_fake_script()
-	local script = Instance.new("Script", SynapseX)
-        script.Name = "Controllor"
-
-        script.Parent.OnSeverEvent:Connect(function(Player, Code)
-            print("Player:", Player)
-            localstring(Code)()
-        end)
-end
-coroutine.wrap(H83248f_fake_script)()
 
 SynapseX.Name = "SynapseX"
 SynapseX.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -693,6 +683,17 @@ local function UKOWAHC_fake_script()
 	wait(1)
 end
 coroutine.wrap(UKOWAHC_fake_script)()
+
+local function H83248f_fake_script()
+	local script = Instance.new("Script", ExecuteScript)
+        script.Name = "Controllor"
+
+        script.Parent.OnSeverEvent:Connect(function(Player, Code)
+            print("Player:", Player)
+            localstring(Code)()
+        end)
+end
+coroutine.wrap(H83248f_fake_script)()
 
 local function AFBOV_fake_script()
 	local script = Instance.new("LocalScript", SynapseX)
